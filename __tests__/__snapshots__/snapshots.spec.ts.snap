@@ -14,11 +14,15 @@ exports[`Snapshots hash snapshot (algorithm: md5): 2b3d64c68adcdad2c3b850deb0328
 
 exports[`Snapshots hash snapshot (algorithm: md5): 3c38adefd2f5bf45341cc50364d58a07feb42907 1`] = `"37a6259cc0c1dae299a7866489dff0bd"`;
 
+exports[`Snapshots hash snapshot (algorithm: md5): 5c34e1fe67e9d6c8ba988f2aaa95b0fe1f3ad8e5 1`] = `"9c0ff000cafcf29a855f1aea5fb2d1f0"`;
+
 exports[`Snapshots hash snapshot (algorithm: md5): 8cf9ece02759c073df613079223901ace2d0df91 1`] = `"42e54c254c27b98fed6e65a788eac4c7"`;
 
 exports[`Snapshots hash snapshot (algorithm: md5): 63d0b026e716c2f15878d2b9d7ff673afe0f9916 1`] = `"d3d9446802a44259755d38e6d163e820"`;
 
 exports[`Snapshots hash snapshot (algorithm: md5): 7980d15b7dde9130c38473c1a96760c396ae5820 1`] = `"1aae9c14bd1af0f06ab0cb0320b477db"`;
+
+exports[`Snapshots hash snapshot (algorithm: md5): 9314f52c3fac509ec9b133647ceca91731d07db4 1`] = `"e17d0ee99013e5ee01d0b073ed2bab2c"`;
 
 exports[`Snapshots hash snapshot (algorithm: md5): 109085beaaa80ac89858b283a64f7c75d7e5bb12 1`] = `"37a6259cc0c1dae299a7866489dff0bd"`;
 
@@ -29,6 +33,10 @@ exports[`Snapshots hash snapshot (algorithm: md5): a1f3c9dd19f849b024779d85fcc8d
 exports[`Snapshots hash snapshot (algorithm: md5): b29c63990dea846689120516761de20c056e3539 1`] = `"68934a3e9455fa72420237eb05902327"`;
 
 exports[`Snapshots hash snapshot (algorithm: md5): cdf22d2a18b96ef07f6105cd8093ae12a8772cb3 1`] = `"b326b5062b2f0e69046810717534cb09"`;
+
+exports[`Snapshots hash snapshot (algorithm: md5): d4df21fea9151b8d1df8c2f6217ed26ba334859e 1`] = `"6e224989555a8dcd3af6ff5afb357de2"`;
+
+exports[`Snapshots hash snapshot (algorithm: md5): f5295a9aab1ef81a413a8963b79e20eb52225f31 1`] = `"766cc9e94939b19ccb625a8b60e95824"`;
 
 exports[`Snapshots hash snapshot (algorithm: none): 0869d0538a8bc81de4d0672fed972c5edb1df9da 1`] = `"{\\"bax\\":true,\\"foo\\":[\\"bar\\",\\"baz\\"]}"`;
 
@@ -44,11 +52,15 @@ exports[`Snapshots hash snapshot (algorithm: none): 2b3d64c68adcdad2c3b850deb032
 
 exports[`Snapshots hash snapshot (algorithm: none): 3c38adefd2f5bf45341cc50364d58a07feb42907 1`] = `"null"`;
 
+exports[`Snapshots hash snapshot (algorithm: none): 5c34e1fe67e9d6c8ba988f2aaa95b0fe1f3ad8e5 1`] = `"{\\"defined\\":true}"`;
+
 exports[`Snapshots hash snapshot (algorithm: none): 8cf9ece02759c073df613079223901ace2d0df91 1`] = `"{\\"set\\":{}}"`;
 
 exports[`Snapshots hash snapshot (algorithm: none): 63d0b026e716c2f15878d2b9d7ff673afe0f9916 1`] = `"10"`;
 
 exports[`Snapshots hash snapshot (algorithm: none): 7980d15b7dde9130c38473c1a96760c396ae5820 1`] = `"{\\"foo\\":{\\"bar\\":true,\\"bax\\":1}}"`;
+
+exports[`Snapshots hash snapshot (algorithm: none): 9314f52c3fac509ec9b133647ceca91731d07db4 1`] = `"{\\"b\\":1}"`;
 
 exports[`Snapshots hash snapshot (algorithm: none): 109085beaaa80ac89858b283a64f7c75d7e5bb12 1`] = `"null"`;
 
@@ -59,6 +71,10 @@ exports[`Snapshots hash snapshot (algorithm: none): a1f3c9dd19f849b024779d85fcc8
 exports[`Snapshots hash snapshot (algorithm: none): b29c63990dea846689120516761de20c056e3539 1`] = `"false"`;
 
 exports[`Snapshots hash snapshot (algorithm: none): cdf22d2a18b96ef07f6105cd8093ae12a8772cb3 1`] = `"true"`;
+
+exports[`Snapshots hash snapshot (algorithm: none): d4df21fea9151b8d1df8c2f6217ed26ba334859e 1`] = `"{\\"!@\\\\\\"#$/'\`\`\\":\\"unusual...\\"}"`;
+
+exports[`Snapshots hash snapshot (algorithm: none): f5295a9aab1ef81a413a8963b79e20eb52225f31 1`] = `"[true,null]"`;
 
 exports[`Snapshots hash snapshot (algorithm: sha1): 0869d0538a8bc81de4d0672fed972c5edb1df9da 1`] = `"b52697b879cb32a679dbcd7a3591e453de5bbd58"`;
 
@@ -74,11 +90,15 @@ exports[`Snapshots hash snapshot (algorithm: sha1): 2b3d64c68adcdad2c3b850deb032
 
 exports[`Snapshots hash snapshot (algorithm: sha1): 3c38adefd2f5bf45341cc50364d58a07feb42907 1`] = `"2be88ca4242c76e8253ac62474851065032d6833"`;
 
+exports[`Snapshots hash snapshot (algorithm: sha1): 5c34e1fe67e9d6c8ba988f2aaa95b0fe1f3ad8e5 1`] = `"60eeef7a520b2e32d219b513868053c5b484e5e3"`;
+
 exports[`Snapshots hash snapshot (algorithm: sha1): 8cf9ece02759c073df613079223901ace2d0df91 1`] = `"66d4c625d9fb5a421a48574a455fb08a2fdff746"`;
 
 exports[`Snapshots hash snapshot (algorithm: sha1): 63d0b026e716c2f15878d2b9d7ff673afe0f9916 1`] = `"b1d5781111d84f7b3fe45a0852e59758cd7a87e5"`;
 
 exports[`Snapshots hash snapshot (algorithm: sha1): 7980d15b7dde9130c38473c1a96760c396ae5820 1`] = `"13cb01f8b37b2317904a991cfbb33c5b37e2427e"`;
+
+exports[`Snapshots hash snapshot (algorithm: sha1): 9314f52c3fac509ec9b133647ceca91731d07db4 1`] = `"ee6093f27ea000b9b837f4a91ac7199131483d31"`;
 
 exports[`Snapshots hash snapshot (algorithm: sha1): 109085beaaa80ac89858b283a64f7c75d7e5bb12 1`] = `"2be88ca4242c76e8253ac62474851065032d6833"`;
 
@@ -89,6 +109,10 @@ exports[`Snapshots hash snapshot (algorithm: sha1): a1f3c9dd19f849b024779d85fcc8
 exports[`Snapshots hash snapshot (algorithm: sha1): b29c63990dea846689120516761de20c056e3539 1`] = `"7cb6efb98ba5972a9b5090dc2e517fe14d12cb04"`;
 
 exports[`Snapshots hash snapshot (algorithm: sha1): cdf22d2a18b96ef07f6105cd8093ae12a8772cb3 1`] = `"5ffe533b830f08a0326348a9160afafc8ada44db"`;
+
+exports[`Snapshots hash snapshot (algorithm: sha1): d4df21fea9151b8d1df8c2f6217ed26ba334859e 1`] = `"f95dfa14d12b44b8194af6189b832e5b5b6e0156"`;
+
+exports[`Snapshots hash snapshot (algorithm: sha1): f5295a9aab1ef81a413a8963b79e20eb52225f31 1`] = `"984aaefa1c08852d73eca6bf5f6c321c6c28d92a"`;
 
 exports[`Snapshots hash snapshot (algorithm: sha256): 0869d0538a8bc81de4d0672fed972c5edb1df9da 1`] = `"83a15e0190334a91e274baf0f90602f29276699a0429d992ca29b7e712a6e9fc"`;
 
@@ -104,11 +128,15 @@ exports[`Snapshots hash snapshot (algorithm: sha256): 2b3d64c68adcdad2c3b850deb0
 
 exports[`Snapshots hash snapshot (algorithm: sha256): 3c38adefd2f5bf45341cc50364d58a07feb42907 1`] = `"74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"`;
 
+exports[`Snapshots hash snapshot (algorithm: sha256): 5c34e1fe67e9d6c8ba988f2aaa95b0fe1f3ad8e5 1`] = `"2f8b66c2f01186bbf042d4d9a9708651bd2432b2c24454b1e14bec00ce3cb55f"`;
+
 exports[`Snapshots hash snapshot (algorithm: sha256): 8cf9ece02759c073df613079223901ace2d0df91 1`] = `"4fbe5b65b5a07e0d6aa3e8b01098b3d43deddedfb61d4dae6ff1130dec5c4be3"`;
 
 exports[`Snapshots hash snapshot (algorithm: sha256): 63d0b026e716c2f15878d2b9d7ff673afe0f9916 1`] = `"4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5"`;
 
 exports[`Snapshots hash snapshot (algorithm: sha256): 7980d15b7dde9130c38473c1a96760c396ae5820 1`] = `"39aa192ca223d86eb95c6a4c94d0ebed6be84c6654584032c49e5f47ccdff00f"`;
+
+exports[`Snapshots hash snapshot (algorithm: sha256): 9314f52c3fac509ec9b133647ceca91731d07db4 1`] = `"eb8ed3ccb5023093b56f490a46501e88d09736687e609fdbc1c71b3df8b9ccd3"`;
 
 exports[`Snapshots hash snapshot (algorithm: sha256): 109085beaaa80ac89858b283a64f7c75d7e5bb12 1`] = `"74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"`;
 
@@ -119,6 +147,10 @@ exports[`Snapshots hash snapshot (algorithm: sha256): a1f3c9dd19f849b024779d85fc
 exports[`Snapshots hash snapshot (algorithm: sha256): b29c63990dea846689120516761de20c056e3539 1`] = `"fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa"`;
 
 exports[`Snapshots hash snapshot (algorithm: sha256): cdf22d2a18b96ef07f6105cd8093ae12a8772cb3 1`] = `"b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"`;
+
+exports[`Snapshots hash snapshot (algorithm: sha256): d4df21fea9151b8d1df8c2f6217ed26ba334859e 1`] = `"c112e3f9b682a85986ddf653b5f2abcdd617f178ef145f0ef048f6fda48ecb7a"`;
+
+exports[`Snapshots hash snapshot (algorithm: sha256): f5295a9aab1ef81a413a8963b79e20eb52225f31 1`] = `"d94613877de59a3a0b3717d90975186f4eec3b2ea86e58be2ae86012529b845d"`;
 
 exports[`Snapshots hash snapshot (default options): 0869d0538a8bc81de4d0672fed972c5edb1df9da 1`] = `"b52697b879cb32a679dbcd7a3591e453de5bbd58"`;
 
@@ -134,11 +166,15 @@ exports[`Snapshots hash snapshot (default options): 2b3d64c68adcdad2c3b850deb032
 
 exports[`Snapshots hash snapshot (default options): 3c38adefd2f5bf45341cc50364d58a07feb42907 1`] = `"2be88ca4242c76e8253ac62474851065032d6833"`;
 
+exports[`Snapshots hash snapshot (default options): 5c34e1fe67e9d6c8ba988f2aaa95b0fe1f3ad8e5 1`] = `"60eeef7a520b2e32d219b513868053c5b484e5e3"`;
+
 exports[`Snapshots hash snapshot (default options): 8cf9ece02759c073df613079223901ace2d0df91 1`] = `"66d4c625d9fb5a421a48574a455fb08a2fdff746"`;
 
 exports[`Snapshots hash snapshot (default options): 63d0b026e716c2f15878d2b9d7ff673afe0f9916 1`] = `"b1d5781111d84f7b3fe45a0852e59758cd7a87e5"`;
 
 exports[`Snapshots hash snapshot (default options): 7980d15b7dde9130c38473c1a96760c396ae5820 1`] = `"13cb01f8b37b2317904a991cfbb33c5b37e2427e"`;
+
+exports[`Snapshots hash snapshot (default options): 9314f52c3fac509ec9b133647ceca91731d07db4 1`] = `"ee6093f27ea000b9b837f4a91ac7199131483d31"`;
 
 exports[`Snapshots hash snapshot (default options): 109085beaaa80ac89858b283a64f7c75d7e5bb12 1`] = `"2be88ca4242c76e8253ac62474851065032d6833"`;
 
@@ -149,3 +185,7 @@ exports[`Snapshots hash snapshot (default options): a1f3c9dd19f849b024779d85fcc8
 exports[`Snapshots hash snapshot (default options): b29c63990dea846689120516761de20c056e3539 1`] = `"7cb6efb98ba5972a9b5090dc2e517fe14d12cb04"`;
 
 exports[`Snapshots hash snapshot (default options): cdf22d2a18b96ef07f6105cd8093ae12a8772cb3 1`] = `"5ffe533b830f08a0326348a9160afafc8ada44db"`;
+
+exports[`Snapshots hash snapshot (default options): d4df21fea9151b8d1df8c2f6217ed26ba334859e 1`] = `"f95dfa14d12b44b8194af6189b832e5b5b6e0156"`;
+
+exports[`Snapshots hash snapshot (default options): f5295a9aab1ef81a413a8963b79e20eb52225f31 1`] = `"984aaefa1c08852d73eca6bf5f6c321c6c28d92a"`;

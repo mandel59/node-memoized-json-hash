@@ -34,7 +34,7 @@ export default function memoizedJsonHash(data: any, opts: Partial<Options> = {})
 
 	const seen = new Set();
 
-	const json = (function stringify(node: any) {
+	const json = (function stringify(node: any): string | undefined {
 			// Exit early for primitives
 			if (node === undefined) return;
 			if (node === null) return 'null';
@@ -68,24 +68,28 @@ export default function memoizedJsonHash(data: any, opts: Partial<Options> = {})
 
 
 				if (Array.isArray(node)) {
-					const out = new Array(node.length);
-					for (let i = 0; i < node.length; i++) out[i] = stringify(node[i]) || 'null';
-					return '[' + out.join(',') + ']';
+					let out = '';
+					for (let i = 0; i < node.length; i++) {
+						if (out) out += ',';
+						out += stringify(node[i]) || 'null';
+					}
+					return '[' + out + ']';
 				}
 
 
 				const keys = Object.keys(node).sort();
-				const out = new Array(keys.length);
+				let out = '';
 				for (let i = 0; i < keys.length; i++) {
 					const key = keys[i];
 					const value = stringify(node[key]);
 
-					// Do not include keys that are undefined
-					if (!value) continue; // TODO: This will lead to holes in the array
+					// Skip undefined entries
+					if (!value) continue;
 
-					out[i] = JSON.stringify(key) + ':' + value;
+					if (out) out += ',';
+					out += JSON.stringify(key) + ':' + value;
 				}
-				return '{' + out.join(',') + '}';
+				return '{' + out + '}';
 			}
 		}
 	)(data) as string; // Safe to cast because a check for undefined is done before stringify is called

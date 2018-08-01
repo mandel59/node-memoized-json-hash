@@ -81,6 +81,10 @@ suite
 		memoized(Object.assign({}, dataStairs), {cache: false});
 		memoized([...dataArray], {cache: false});
 	})
+	.add('memoized-json-hash (no cache, algorithm: none)', function () {
+		memoized(Object.assign({}, dataStairs), {cache: false, algorithm: 'none'});
+		memoized([...dataArray], {cache: false, algorithm: 'none'});
+	})
 	.add('json-hash', function () {
 		jsonHash.digest(Object.assign({}, dataStairs), jsonHashOpts);
 		jsonHash.digest([...dataArray], jsonHashOpts);

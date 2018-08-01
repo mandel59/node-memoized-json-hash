@@ -33,12 +33,16 @@ describe('Snapshots', () => {
 		{foo: 'bar', bar: 'baz'},
 		{foo: {bar: true, bax: 1}},
 		{foo: ['bar', 'baz'], bax: true},
-		['foo', 'bar']
+		['foo', 'bar'],
+		{defined: true, not_defined: undefined},
+		{a: undefined, b: 1, c: undefined},
+		{'!@"#$/\'``': 'unusual...'}
 	];
 
 	const specials = [
 		{map: new Map<any,any>([[1, 2], [{}, []]])},
-		{set: new Set([1,2, {}, [], new Map()])}
+		{set: new Set([1,2, {}, [], new Map()])},
+		[true, undefined]
 	];
 
 

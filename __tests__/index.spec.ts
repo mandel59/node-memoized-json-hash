@@ -1,5 +1,4 @@
 import jsonHash from '../index';
-import objectHash from '../index';
 
 const validSha1 = /^[0-9a-f]{40}$/i;
 
@@ -20,10 +19,10 @@ describe('hash', function () {
 
 	// it('throws when passed an invalid options', function () {
 	// 	assert.throws(function () {
-	// 		objectHash({foo: 'bar'}, {algorithm: 'shalala'} as any);
+	// 		jsonHash({foo: 'bar'}, {algorithm: 'shalala'} as any);
 	// 	}, 'bad algorithm');
 	// 	assert.throws(function () {
-	// 		objectHash({foo: 'bar'}, {encoding: 'base16'} as any);
+	// 		jsonHash({foo: 'bar'}, {encoding: 'base16'} as any);
 	// 	}, 'bad encoding');
 	// });
 
@@ -36,9 +35,9 @@ describe('hash', function () {
 
 
 		test('hashes identical objects with different key ordering', function () {
-			const hash1 = objectHash({foo: 'bar', bar: 'baz'});
-			const hash2 = objectHash({bar: 'baz', foo: 'bar'});
-			const hash3 = objectHash({bar: 'foo', foo: 'baz'});
+			const hash1 = jsonHash({foo: 'bar', bar: 'baz'});
+			const hash2 = jsonHash({bar: 'baz', foo: 'bar'});
+			const hash3 = jsonHash({bar: 'foo', foo: 'baz'});
 
 			expect(hash1).toBe(hash2);
 			expect(hash1).not.toBe(hash3);
@@ -46,9 +45,9 @@ describe('hash', function () {
 
 
 		test('nested object values are hashed', function () {
-			const hash1 = objectHash({foo: {bar: true, bax: 1}});
-			const hash2 = objectHash({foo: {bar: true, bax: 1}});
-			const hash3 = objectHash({foo: {bar: false, bax: 1}});
+			const hash1 = jsonHash({foo: {bar: true, bax: 1}});
+			const hash2 = jsonHash({foo: {bar: true, bax: 1}});
+			const hash3 = jsonHash({foo: {bar: false, bax: 1}});
 
 			expect(hash1).toBe(hash2);
 			expect(hash1).not.toBe(hash3);
@@ -70,18 +69,28 @@ describe('hash', function () {
 		// 	const hash2: any = {k1: {k: 'v'}, k2: {k: 'k2'}};
 		// 	hash2.k1.r1 = hash2.k2;
 		// 	hash2.k2.r2 = hash2.k1;
-		// 	assert.notEqual(objectHash(hash1), objectHash(hash2), "order of recursive objects should matter");
+		// 	assert.notEqual(jsonHash(hash1), jsonHash(hash2), "order of recursive objects should matter");
 		//
-		// 	expect(objectHash(hash1)).toMatchSnapshot();
-		// 	expect(objectHash(hash2)).toMatchSnapshot();
+		// 	expect(jsonHash(hash1)).toMatchSnapshot();
+		// 	expect(jsonHash(hash2)).toMatchSnapshot();
 		// });
 
 
 		test('arrays and objects should not produce identical hashes', function () {
-			const hash1 = objectHash({foo: 'bar'});
-			const hash2 = objectHash(['foo', 'bar']);
+			const hash1 = jsonHash({foo: 'bar'});
+			const hash2 = jsonHash(['foo', 'bar']);
 
 			expect(hash1).not.toBe(hash2);
+		});
+
+
+		test('handles objects with undefined fields', () => {
+			const o = {defined: true, not_defined: undefined};
+
+			const json1 = jsonHash(o, {algorithm: 'none'});
+			const json2 = JSON.stringify(o);
+
+			expect(json1).toBe(json2);
 		});
 	});
 
@@ -116,16 +125,16 @@ describe('hash', function () {
 
 	describe('strings', () => {
 		test('different strings with similar utf8 encodings should produce different hashes', function () {
-			const hash1 = objectHash('\u03c3'); // cf 83 in utf8
-			const hash2 = objectHash('\u01c3'); // c7 83 in utf8
+			const hash1 = jsonHash('\u03c3'); // cf 83 in utf8
+			const hash2 = jsonHash('\u01c3'); // c7 83 in utf8
 
 			expect(hash1).not.toBe(hash2);
 		});
 
 
 		test('null and "null" string produce different hashes', function () {
-			const hash1 = objectHash({foo: null});
-			const hash2 = objectHash({foo: 'null'});
+			const hash1 = jsonHash({foo: null});
+			const hash2 = jsonHash({foo: 'null'});
 
 			expect(hash1).not.toEqual(hash2);
 		});
@@ -134,8 +143,8 @@ describe('hash', function () {
 
 	describe('numbers', () => {
 		test('1 and "1" string produce different hashes', function () {
-			const hash1 = objectHash('1');
-			const hash2 = objectHash(1);
+			const hash1 = jsonHash('1');
+			const hash2 = jsonHash(1);
 
 			expect(hash1).not.toEqual(hash2);
 		});
