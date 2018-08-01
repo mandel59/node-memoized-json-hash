@@ -98,7 +98,7 @@ suite
 		objectHash([...dataArray], objectHashOpts);
 	})
 	.add('fast-json-stable-stringify', function () {
-		stringify(dObject.assign({}, dataStairs));
+		stringify(Object.assign({}, dataStairs));
 		stringify([...dataArray]);
 	})
 
