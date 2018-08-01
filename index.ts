@@ -2,17 +2,35 @@ import {createHash} from 'crypto';
 
 
 export interface Options {
-	algorithm: 'none' | 'sha1' | 'sha256' | 'sha512' | 'md5',
-	cycles: boolean
+	/**
+	 * Which hashing algorithm to use. Specify 'none' to return a deterministic JSON string.
+	 *
+	 * Default: 'sha1'
+	 */
+	algorithm: 'none' | 'sha1' | 'sha256' | 'sha512' | 'md5'
+
+	/**
+	 * Whether to allow recursive structures.
+	 *
+	 * Default: false
+	 */
+	cycles: boolean,
+
+	/**
+	 * Whether to use the cache (memoization).
+	 *
+	 * Default: true
+	 */
+	cache: boolean
 }
 
 
 export default function memoizedJsonHash(data: any, opts: Partial<Options> = {}): string {
 	if (data === undefined) throw new Error('no data argument');
 
-	const cycles = (typeof opts.cycles === 'boolean') ? opts.cycles : false;
-
 	const algorithm = opts.algorithm || 'sha1';
+	const cycles = (typeof opts.cycles === 'boolean') ? opts.cycles : false;
+	const useCache = (typeof opts.cache === 'boolean') ? opts.cache : true;
 
 	const seen = new Set();
 
@@ -29,6 +47,8 @@ export default function memoizedJsonHash(data: any, opts: Partial<Options> = {})
 			// Important to check for this *after* invoking the toJSON() function, because that can result in a primitive
 			if (typeof node !== 'object') return JSON.stringify(node);
 
+			// Bypass the cache if the option was set
+			if (!useCache) return stringifyObject(node);
 
 			const map = cache(algorithm);
 			let result = map.get(node);

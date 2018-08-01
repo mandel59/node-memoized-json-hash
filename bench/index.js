@@ -74,27 +74,31 @@ const objectHashOpts = {algorithm: 'sha1', encoding: 'hex'};
 
 suite
 	.add('memoized-json-hash', function () {
-		memoized(dataStairs);
+		memoized(Object.assign({}, dataStairs));
 		memoized([...dataArray]);
 	})
+	.add('memoized-json-hash (no cache)', function () {
+		memoized(Object.assign({}, dataStairs), {cache: false});
+		memoized([...dataArray], {cache: false});
+	})
 	.add('json-hash', function () {
-		jsonHash.digest(dataStairs, jsonHashOpts);
+		jsonHash.digest(Object.assign({}, dataStairs), jsonHashOpts);
 		jsonHash.digest([...dataArray], jsonHashOpts);
 	})
 	.add('node-object-hash', function () {
-		nodeObjectHash.hash(dataStairs, nodeObjectHashOpts);
+		nodeObjectHash.hash(Object.assign({}, dataStairs), nodeObjectHashOpts);
 		nodeObjectHash.hash([...dataArray], nodeObjectHashOpts);
 	})
 	.add('hash-object', function () {
-		hashObject(dataStairs, hashObjectOpts);
+		hashObject(Object.assign({}, dataStairs), hashObjectOpts);
 		hashObject([...dataArray], hashObjectOpts);
 	})
 	.add('object-hash', function () {
-		objectHash(dataStairs, objectHashOpts);
+		objectHash(Object.assign({}, dataStairs), objectHashOpts);
 		objectHash([...dataArray], objectHashOpts);
 	})
 	.add('fast-json-stable-stringify', function () {
-		stringify(dataStairs);
+		stringify(dObject.assign({}, dataStairs));
 		stringify([...dataArray]);
 	})
 
