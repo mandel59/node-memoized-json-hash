@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "strictFunctionTypes": false,
+    "strictPropertyInitialization": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "module": "commonjs",
+    "target": "ES6",
+    "types": [
+      "node",
+      "jest"
+    ],
+    "baseUrl": "./typings",
+    "typeRoots": ["typings"]
+  },
+  "exclude": []
+}
