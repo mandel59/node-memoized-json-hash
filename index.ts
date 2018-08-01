@@ -2,7 +2,7 @@ import {createHash} from 'crypto';
 
 
 export interface Options {
-	algorithm: 'sha1' | 'sha256' | 'sha512' | 'md5',
+	algorithm: 'none' | 'sha1' | 'sha256' | 'sha512' | 'md5',
 	cycles: boolean
 }
 
@@ -68,13 +68,14 @@ export default function memoizedJsonHash(data: any, opts: Partial<Options> = {})
 				return '{' + out.join(',') + '}';
 			}
 		}
-	)(data);
+	)(data) as string; // Safe to cast because a check for undefined is done before stringify is called
 
+
+	if (algorithm === 'none') return json;
 
 	const stream = createHash(algorithm);
 
-	// Safe to cast because a check for undefined is done before stringify is called
-	stream.update(json as string);
+	stream.update(json);
 
 	return stream.digest('hex');
 };

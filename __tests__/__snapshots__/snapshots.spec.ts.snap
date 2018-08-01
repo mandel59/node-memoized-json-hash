@@ -26,6 +26,32 @@ exports[`Snapshots hash snapshot (algorithm: md5) 12`] = `"78d1ce3583498a65122be
 
 exports[`Snapshots hash snapshot (algorithm: md5) 13`] = `"1ea13cb52ddd7c90e9f428d1df115d8f"`;
 
+exports[`Snapshots hash snapshot (algorithm: none) 1`] = `"10"`;
+
+exports[`Snapshots hash snapshot (algorithm: none) 2`] = `"1.1"`;
+
+exports[`Snapshots hash snapshot (algorithm: none) 3`] = `"null"`;
+
+exports[`Snapshots hash snapshot (algorithm: none) 4`] = `"null"`;
+
+exports[`Snapshots hash snapshot (algorithm: none) 5`] = `"true"`;
+
+exports[`Snapshots hash snapshot (algorithm: none) 6`] = `"false"`;
+
+exports[`Snapshots hash snapshot (algorithm: none) 7`] = `"null"`;
+
+exports[`Snapshots hash snapshot (algorithm: none) 8`] = `"\\"a string\\""`;
+
+exports[`Snapshots hash snapshot (algorithm: none) 9`] = `"{}"`;
+
+exports[`Snapshots hash snapshot (algorithm: none) 10`] = `"{\\"bar\\":\\"baz\\",\\"foo\\":\\"bar\\"}"`;
+
+exports[`Snapshots hash snapshot (algorithm: none) 11`] = `"{\\"foo\\":{\\"bar\\":true,\\"bax\\":1}}"`;
+
+exports[`Snapshots hash snapshot (algorithm: none) 12`] = `"{\\"bax\\":true,\\"foo\\":[\\"bar\\",\\"baz\\"]}"`;
+
+exports[`Snapshots hash snapshot (algorithm: none) 13`] = `"[\\"foo\\",\\"bar\\"]"`;
+
 exports[`Snapshots hash snapshot (algorithm: sha1) 1`] = `"b1d5781111d84f7b3fe45a0852e59758cd7a87e5"`;
 
 exports[`Snapshots hash snapshot (algorithm: sha1) 2`] = `"4491f8b5ecc09d9de308ea37e6a23ad2dd66c256"`;

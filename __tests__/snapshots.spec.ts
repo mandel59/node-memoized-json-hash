@@ -11,17 +11,23 @@ const hex = {
 };
 
 describe('Snapshots', () => {
-
 	// Changing the order of the elements will cause the snapshot tests to fail!
-	const arr = [
+	const numbers = [
 		10,
 		1.1,
 		NaN,
-		Infinity,
+		Infinity
+	];
+
+	const primitives = [
+		...numbers,
 		true,
 		false,
 		null,
-		'a string',
+		'a string'
+	];
+
+	const objects = [
 		{},
 		{foo: 'bar', bar: 'baz'},
 		{foo: {bar: true, bax: 1}},
@@ -30,39 +36,66 @@ describe('Snapshots', () => {
 	];
 
 
-	for (let item of arr) {
+	const all = [
+		...primitives,
+		...objects
+	];
+
+
+	for (let item of all) {
 		test('hash snapshot (default options)', () => {
 			expect(jsonHash(item)).toMatchSnapshot();
 		});
-	}
 
 
-	for (let item of arr) {
+		test('hash snapshot (algorithm: none)', () => {
+			const string = jsonHash(item, {algorithm: 'none'});
+
+			const parsed = JSON.parse(string);
+
+			expect(string).toMatchSnapshot();
+			// expect(parsed).toEqual(item);
+		});
+
+
 		test('hash snapshot (algorithm: md5)', () => {
 			const string = jsonHash(item, {algorithm: 'md5'});
 
 			expect(string).toMatch(hex.md5);
 			expect(string).toMatchSnapshot();
 		});
-	}
 
 
-	for (let item of arr) {
 		test('hash snapshot (algorithm: sha1)', () => {
 			const string = jsonHash(item, {algorithm: 'sha1'});
 
 			expect(string).toMatch(hex.sha1);
 			expect(string).toMatchSnapshot();
 		});
-	}
 
 
-	for (let item of arr) {
 		test('hash snapshot (algorithm: sha256)', () => {
 			const string = jsonHash(item, {algorithm: 'sha256'});
 
 			expect(string).toMatch(hex.sha256);
 			expect(string).toMatchSnapshot();
+		});
+
+
+		test('produces valid json (algorithm: none)', () => {
+			const string = jsonHash(item, {algorithm: 'none'});
+
+			expect(() => JSON.parse(string)).not.toThrowError();
+		});
+	}
+
+
+	for(let item of objects) {
+		test( 'parsing stringified json yields original object (algorithm: none)', () => {
+			const string = jsonHash(item, {algorithm: 'none'});
+			const parsed = JSON.parse(string);
+
+			expect(parsed).toEqual(item);
 		});
 	}
 });
