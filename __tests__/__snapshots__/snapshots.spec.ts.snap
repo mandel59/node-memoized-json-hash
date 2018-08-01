@@ -26,6 +26,10 @@ exports[`Snapshots hash snapshot (algorithm: md5) 12`] = `"78d1ce3583498a65122be
 
 exports[`Snapshots hash snapshot (algorithm: md5) 13`] = `"1ea13cb52ddd7c90e9f428d1df115d8f"`;
 
+exports[`Snapshots hash snapshot (algorithm: md5) 14`] = `"976522e1afb4b5a3a79654ac950e7a31"`;
+
+exports[`Snapshots hash snapshot (algorithm: md5) 15`] = `"42e54c254c27b98fed6e65a788eac4c7"`;
+
 exports[`Snapshots hash snapshot (algorithm: none) 1`] = `"10"`;
 
 exports[`Snapshots hash snapshot (algorithm: none) 2`] = `"1.1"`;
@@ -51,6 +55,10 @@ exports[`Snapshots hash snapshot (algorithm: none) 11`] = `"{\\"foo\\":{\\"bar\\
 exports[`Snapshots hash snapshot (algorithm: none) 12`] = `"{\\"bax\\":true,\\"foo\\":[\\"bar\\",\\"baz\\"]}"`;
 
 exports[`Snapshots hash snapshot (algorithm: none) 13`] = `"[\\"foo\\",\\"bar\\"]"`;
+
+exports[`Snapshots hash snapshot (algorithm: none) 14`] = `"{\\"map\\":{}}"`;
+
+exports[`Snapshots hash snapshot (algorithm: none) 15`] = `"{\\"set\\":{}}"`;
 
 exports[`Snapshots hash snapshot (algorithm: sha1) 1`] = `"b1d5781111d84f7b3fe45a0852e59758cd7a87e5"`;
 
@@ -78,6 +86,10 @@ exports[`Snapshots hash snapshot (algorithm: sha1) 12`] = `"b52697b879cb32a679db
 
 exports[`Snapshots hash snapshot (algorithm: sha1) 13`] = `"dedf54a84ba7aaa921dda4e0f46edd5f07f7639c"`;
 
+exports[`Snapshots hash snapshot (algorithm: sha1) 14`] = `"34c5651c81c5421bafa6019977dff2ccb3432f02"`;
+
+exports[`Snapshots hash snapshot (algorithm: sha1) 15`] = `"66d4c625d9fb5a421a48574a455fb08a2fdff746"`;
+
 exports[`Snapshots hash snapshot (algorithm: sha256) 1`] = `"4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5"`;
 
 exports[`Snapshots hash snapshot (algorithm: sha256) 2`] = `"b05e244762b1e472be89a93800cc3ee326743cecb55984bf12813addb8de66d0"`;
@@ -104,6 +116,10 @@ exports[`Snapshots hash snapshot (algorithm: sha256) 12`] = `"83a15e0190334a91e2
 
 exports[`Snapshots hash snapshot (algorithm: sha256) 13`] = `"a9827ca249365f016ed0a9da9604634799792532c0559be0547348d44bbddbde"`;
 
+exports[`Snapshots hash snapshot (algorithm: sha256) 14`] = `"65061da03da794ff0b85ed3b8e7d9324e8d962935307977d6003c043f4e57014"`;
+
+exports[`Snapshots hash snapshot (algorithm: sha256) 15`] = `"4fbe5b65b5a07e0d6aa3e8b01098b3d43deddedfb61d4dae6ff1130dec5c4be3"`;
+
 exports[`Snapshots hash snapshot (default options) 1`] = `"b1d5781111d84f7b3fe45a0852e59758cd7a87e5"`;
 
 exports[`Snapshots hash snapshot (default options) 2`] = `"4491f8b5ecc09d9de308ea37e6a23ad2dd66c256"`;
@@ -129,3 +145,7 @@ exports[`Snapshots hash snapshot (default options) 11`] = `"13cb01f8b37b2317904a
 exports[`Snapshots hash snapshot (default options) 12`] = `"b52697b879cb32a679dbcd7a3591e453de5bbd58"`;
 
 exports[`Snapshots hash snapshot (default options) 13`] = `"dedf54a84ba7aaa921dda4e0f46edd5f07f7639c"`;
+
+exports[`Snapshots hash snapshot (default options) 14`] = `"34c5651c81c5421bafa6019977dff2ccb3432f02"`;
+
+exports[`Snapshots hash snapshot (default options) 15`] = `"66d4c625d9fb5a421a48574a455fb08a2fdff746"`;

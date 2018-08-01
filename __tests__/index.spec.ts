@@ -123,9 +123,19 @@ describe('hash', function () {
 		});
 
 
-		test("null and 'null' string produce different hashes", function () {
+		test('null and "null" string produce different hashes', function () {
 			const hash1 = objectHash({foo: null});
 			const hash2 = objectHash({foo: 'null'});
+
+			expect(hash1).not.toEqual(hash2);
+		});
+	});
+
+
+	describe('numbers', () => {
+		test('1 and "1" string produce different hashes', function () {
+			const hash1 = objectHash('1');
+			const hash2 = objectHash(1);
 
 			expect(hash1).not.toEqual(hash2);
 		});

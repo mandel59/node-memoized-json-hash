@@ -35,10 +35,16 @@ describe('Snapshots', () => {
 		['foo', 'bar']
 	];
 
+	const specials = [
+		{map: new Map<any,any>([[1, 2], [{}, []]])},
+		{set: new Set([1,2, {}, [], new Map()])}
+	];
+
 
 	const all = [
 		...primitives,
-		...objects
+		...objects,
+		...specials
 	];
 
 
