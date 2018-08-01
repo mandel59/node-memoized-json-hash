@@ -140,5 +140,24 @@ describe('hash', function () {
 			expect(hash1).not.toEqual(hash2);
 		});
 	});
+
+
+	describe('memoization', () => {
+		test('cache does not mess things up', () => {
+			const o1 = {};
+			const o2 = {a: 1};
+			const o3 = {b: 2, a: [1, 2, 3]};
+
+			const hash1 = jsonHash({o1, o2, o3});
+			const hash2 = jsonHash({o1, o2, o3});
+			const hash3 = jsonHash({o3, o2, o1: {}});
+			const hash4 = jsonHash({o2: {a: 1}, o3: {a: [1, 2, 3], b: 2}, o1: {}});
+
+			expect(hash1).toBe(hash2);
+			expect(hash2).toBe(hash3);
+			expect(hash3).toBe(hash4);
+		});
+
+	});
 });
 
