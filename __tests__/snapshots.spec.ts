@@ -3,6 +3,8 @@
  * If not, then this should result in a major version bump.
  */
 import jsonHash from '../index';
+import id from 'object-hash';
+
 
 const hex = {
 	md5: /^[0-9a-f]{32}$/,
@@ -11,7 +13,6 @@ const hex = {
 };
 
 describe('Snapshots', () => {
-	// Changing the order of the elements will cause the snapshot tests to fail!
 	const numbers = [
 		10,
 		1.1,
@@ -50,17 +51,14 @@ describe('Snapshots', () => {
 
 	for (let item of all) {
 		test('hash snapshot (default options)', () => {
-			expect(jsonHash(item)).toMatchSnapshot();
+			expect(jsonHash(item)).toMatchSnapshot(id(item));
 		});
 
 
 		test('hash snapshot (algorithm: none)', () => {
 			const string = jsonHash(item, {algorithm: 'none'});
 
-			const parsed = JSON.parse(string);
-
-			expect(string).toMatchSnapshot();
-			// expect(parsed).toEqual(item);
+			expect(string).toMatchSnapshot(id(item));
 		});
 
 
@@ -68,7 +66,7 @@ describe('Snapshots', () => {
 			const string = jsonHash(item, {algorithm: 'md5'});
 
 			expect(string).toMatch(hex.md5);
-			expect(string).toMatchSnapshot();
+			expect(string).toMatchSnapshot(id(item));
 		});
 
 
@@ -76,7 +74,7 @@ describe('Snapshots', () => {
 			const string = jsonHash(item, {algorithm: 'sha1'});
 
 			expect(string).toMatch(hex.sha1);
-			expect(string).toMatchSnapshot();
+			expect(string).toMatchSnapshot(id(item));
 		});
 
 
@@ -84,7 +82,7 @@ describe('Snapshots', () => {
 			const string = jsonHash(item, {algorithm: 'sha256'});
 
 			expect(string).toMatch(hex.sha256);
-			expect(string).toMatchSnapshot();
+			expect(string).toMatchSnapshot(id(item));
 		});
 
 
