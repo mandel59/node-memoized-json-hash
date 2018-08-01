@@ -17,5 +17,7 @@
     "baseUrl": "./typings",
     "typeRoots": ["typings"]
   },
-  "exclude": []
+  "exclude": [
+    "dist"
+  ]
 }

@@ -22,9 +22,12 @@
   "author": "Hendrik Gossler <hendrik.gossler@gmail.com>",
   "license": "MIT",
   "main": "dist/cjs/index.js",
+  "module": "dist/es6/index.js",
+  "types": "dist/cjs/index.d.ts",
   "scripts": {
-    "prepublish": "npm run tsc-cjs",
-    "tsc-cjs": "tsc --module commonjs --outDir dist/cjs",
+    "prepublishOnly": "npm run tsc-cjs && npm run tsc-es6",
+    "tsc-cjs": "tsc --module commonjs --declaration --outDir dist/cjs",
+    "tsc-es6": "tsc --module es6 --outDir dist/es6",
     "test": "jest",
     "bench": "node --expose-gc ./bench/index.js"
   },
