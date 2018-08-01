@@ -29,7 +29,7 @@
     "tsc-cjs": "tsc --module commonjs --declaration --outDir dist/cjs",
     "tsc-es6": "tsc --module es6 --outDir dist/es6",
     "test": "jest",
-    "bench": "node --expose-gc ./bench/index.js"
+    "bench": "node --expose-gc ./__benchmarks__/index.js"
   },
   "jest": {
     "modulePathIgnorePatterns": [
@@ -46,7 +46,6 @@
     },
     "testEnvironment": "node"
   },
-
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.54",
     "@babel/core": "^7.0.0-beta.54",

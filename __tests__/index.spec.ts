@@ -1,11 +1,7 @@
 import jsonHash from '../index';
 
-const validSha1 = /^[0-9a-f]{40}$/i;
 
 describe('hash', function () {
-
-	test.skip('removes undefined fields', () => {
-	});
 
 	test('throws when nothing to hash', () => {
 		expect(jsonHash).toThrowError('no data');
@@ -27,13 +23,6 @@ describe('hash', function () {
 	// });
 
 	describe('objects', () => {
-		test('hashes a simple object', function () {
-			const string = jsonHash({foo: 'bar', bar: 'baz'});
-
-			expect(string).toMatch(validSha1);
-		});
-
-
 		test('hashes identical objects with different key ordering', function () {
 			const hash1 = jsonHash({foo: 'bar', bar: 'baz'});
 			const hash2 = jsonHash({bar: 'baz', foo: 'bar'});

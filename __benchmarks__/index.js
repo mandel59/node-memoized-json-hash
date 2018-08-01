@@ -1,5 +1,4 @@
 const Benchmark = require('benchmark');
-const suite = new Benchmark.Suite;
 const faker = require('faker');
 
 const crypto = require('crypto');
@@ -72,6 +71,7 @@ const nodeObjectHashOpts = {alg: 'sha1'};
 const hashObjectOpts = {algorithm: 'sha1'};
 const objectHashOpts = {algorithm: 'sha1', encoding: 'hex'};
 
+const suite = new Benchmark.Suite();
 suite
 	.add('memoized-json-hash', function () {
 		memoized(Object.assign({}, dataStairs));
