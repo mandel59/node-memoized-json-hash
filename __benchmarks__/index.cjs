@@ -1,3 +1,5 @@
+(async () => {
+
 const Benchmark = require('benchmark');
 const faker = require('faker');
 
@@ -8,7 +10,7 @@ const nodeObjectHash = require('node-object-hash')();
 const hashObject = require('hash-object');
 const jsonHash = require('json-hash');
 const stringify = require('fast-json-stable-stringify');
-const memoized = require('../dist/cjs').default;
+const memoized = (await import('../dist/es6/index.js')).default;
 
 
 console.log('Creating fake data...');
@@ -115,3 +117,5 @@ suite
 	})
 	// run async
 	.run({'async': true});
+
+})();

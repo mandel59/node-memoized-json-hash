@@ -1,5 +1,6 @@
-import {createHash} from 'crypto';
+import { createHash } from 'crypto';
 
+export type Algorithm = 'none' | 'sha1' | 'sha256' | 'sha512' | 'md5';
 
 export interface Options {
 	/**
@@ -7,34 +8,49 @@ export interface Options {
 	 *
 	 * Default: 'sha1'
 	 */
-	algorithm: 'none' | 'sha1' | 'sha256' | 'sha512' | 'md5'
+	algorithm: Algorithm;
 
 	/**
 	 * Whether to allow recursive structures.
 	 *
 	 * Default: false
 	 */
-	cycles: boolean,
+	cycles: boolean;
 
 	/**
 	 * Whether to use the cache (memoization).
 	 *
 	 * Default: true
 	 */
-	cache: boolean
+	useCache: boolean;
 }
 
+export class MemoizedJsonHash {
+	readonly algorithm: Algorithm;
+	readonly cycles: boolean;
+	readonly useCache: boolean;
+	_cache: Partial<{ [key in Algorithm]: WeakMap<object, string> }> = {};
+	constructor(opts: Partial<Options> = {}) {
+		this.algorithm = opts.algorithm || 'sha1';
+		this.cycles = (typeof opts.cycles === 'boolean') ? opts.cycles : false;
+		this.useCache = (typeof opts.useCache === 'boolean') ? opts.useCache : true;
+	}
+	cache(algorithm: Options['algorithm']) {
+		let c = this._cache[algorithm];
+		if (!c) c = this._cache[algorithm] = new WeakMap<object, string>();
+		return c;
+	}
+	hash(data: any, opts: Partial<Options> = {}) {
+		if (data === undefined) throw new Error('no data argument');
 
-export default function memoizedJsonHash(data: any, opts: Partial<Options> = {}): string {
-	if (data === undefined) throw new Error('no data argument');
+		const algorithm = opts.algorithm || this.algorithm;
+		const cycles = (typeof opts.cycles === 'boolean') ? opts.cycles : this.cycles;
+		const useCache = (typeof opts.useCache === 'boolean') ? opts.useCache : this.cache;
 
-	const algorithm = opts.algorithm || 'sha1';
-	const cycles = (typeof opts.cycles === 'boolean') ? opts.cycles : false;
-	const useCache = (typeof opts.cache === 'boolean') ? opts.cache : true;
+		const seen = new Set();
 
-	const seen = new Set();
-
-	const json = (function stringify(node: any): string | undefined {
+		const self = this;
+		const json = (function stringify(node: any): string | undefined {
 			// Exit early for primitives
 			if (node === undefined) return;
 			if (node === null) return 'null';
@@ -50,7 +66,7 @@ export default function memoizedJsonHash(data: any, opts: Partial<Options> = {})
 			// Bypass the cache if the option was set
 			if (!useCache) return stringifyObject(node);
 
-			const map = cache(algorithm);
+			const map = self.cache(algorithm);
 			let result = map.get(node);
 			if (!result) {
 				result = stringifyObject(node);
@@ -66,7 +82,6 @@ export default function memoizedJsonHash(data: any, opts: Partial<Options> = {})
 					seen.add(node);
 				}
 
-
 				if (Array.isArray(node)) {
 					let out = '';
 					for (let i = 0; i < node.length; i++) {
@@ -75,7 +90,6 @@ export default function memoizedJsonHash(data: any, opts: Partial<Options> = {})
 					}
 					return '[' + out + ']';
 				}
-
 
 				const keys = Object.keys(node).sort();
 				let out = '';
@@ -92,25 +106,17 @@ export default function memoizedJsonHash(data: any, opts: Partial<Options> = {})
 				return '{' + out + '}';
 			}
 		}
-	)(data) as string; // Safe to cast because a check for undefined is done before stringify is called
+		)(data) as string; // Safe to cast because a check for undefined is done before stringify is called
 
-
-	if (algorithm === 'none') return json;
-
-	const stream = createHash(algorithm);
-
-	stream.update(json);
-
-	return stream.digest('hex');
-};
-
-
-const _cache: Partial<{[key in Options['algorithm']]: WeakMap<object, string>}> = {};//
-
-function cache(algorithm: Options['algorithm']) {
-	let c = _cache[algorithm];
-
-	if (!c) c = _cache[algorithm] = new WeakMap<object, string>();
-
-	return c;
+		if (algorithm === 'none') return json;
+		const stream = createHash(algorithm);
+		stream.update(json);
+		return stream.digest('hex');
+	}
 }
+
+let _cache: MemoizedJsonHash | undefined
+export default function memoizedJsonHash(data: any, opts: Partial<Options> = {}): string {
+	if (_cache == null) _cache = new MemoizedJsonHash();
+	return _cache.hash(data, opts);
+};
